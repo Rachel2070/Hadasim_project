@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema,  Document} from "mongoose";
 
 // Define the structure of the vaccine information
 interface IVaccineInfo {
