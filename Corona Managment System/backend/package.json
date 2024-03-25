@@ -3,18 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+
   "scripts": {
     "start": "nodemon",
     "build": "tsc",
-    "serve": "node build/server.js"
+    "serve": "node build/server.js",
+    "seed": "npx ts-node src/seed/seedMembers.ts"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "cors": "^2.8.5",
     "express": "^4.19.1",
     "joi": "^17.12.2",
     "mongoose": "^8.2.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.30",
     "nodemon": "^3.1.0",
