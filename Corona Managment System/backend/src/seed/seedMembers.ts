@@ -48,11 +48,11 @@ const generateMembers = (numMembers: number) => {
             street: faker.location.street(),
             number: faker.location.buildingNumber()
         },
-        dateOfBirth: faker.date.past({ years: 90, refDate: new Date() }),
+        dateOfBirth: faker.date.past({ years: 80, refDate: new Date('2000-01-01') }),
         telephone: generateRandomPhoneNumber(),
         mobilePhone: generateRandomPhoneNumber(),
         positiveTestDate: faker.date.past({ years: 4, refDate: new Date('2024-01-01') }),
-        recoveryDate: faker.date.between({ from: new Date('2020-01-01'), to: new Date() }),
+        recoveryDate: faker.date.between({ from: new Date('2020-01-01'), to: new Date('2021-01-01') }),
         vaccines: [
             {
                 date: faker.date.past({ years: 2 }),

@@ -8,7 +8,6 @@ interface IVaccineInfo {
 
 // Interface for member document, extending Mongoose Document
 export interface IMember extends Document {
-    // memberCode: mongoose.Types.ObjectId;
     firstName: String;
     lastName: String;
     identityCard: String;

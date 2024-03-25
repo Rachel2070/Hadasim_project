@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { addMemberSchema, updateCovidInfoSchema } from '../validation/memberValidation'; // Import validation schemas
+import { addMemberSchema, updateCovidInfoSchema, updateMemberInfoSchema } from '../validation/memberValidation'; // Import validation schemas
 import MemberSchema from '../models/member.model'; // Import Mongoose model for members
 
 // Middleware to validate the request body for adding a new member
@@ -13,7 +13,7 @@ export const validateAddMember = (req: Request, res: Response, next: NextFunctio
 
 // Middleware to validate the request body for updating member's COVID info
 export const validateUpdateMember = (req: Request, res: Response, next: NextFunction) => {
-    const { error } = updateCovidInfoSchema.validate(req.body); // Validate request body against the update member schema
+    const { error } = updateMemberInfoSchema.validate(req.body); // Validate request body against the update member schema
     if (error) {
         return res.status(400).send({ message: error.details[0].message }); // Return validation error message
     }

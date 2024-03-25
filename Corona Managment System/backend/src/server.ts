@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
     res.status(200).json({ status: 'success', message: 'Server is up and running!' });
 });
 
-app.use('/api/member', memberRoutes);
+app.use('/api/members', memberRoutes);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
