@@ -57,3 +57,11 @@ export const validateUniqueIdentityCardPutOrPatch = async (req: Request, res: Re
     };
 };
 
+export const validateUpdateCovidInfo = (req: Request, res: Response, next: NextFunction) => {
+    const { error } = updateCovidInfoSchema.validate(req.body); // Validate request body against the update member schema
+    if (error) {
+        return res.status(400).send({ message: error.details[0].message }); // Return validation error message
+    }
+    next(); // Move to the next middleware if validation passes
+}
+
