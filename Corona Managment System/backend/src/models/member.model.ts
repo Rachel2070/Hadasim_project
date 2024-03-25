@@ -21,6 +21,7 @@ export interface IMember extends Document {
     mobilePhone: String;
     positiveTestDate?: Date;
     recoveryDate?: Date;
+    photoUrl?: string;
     vaccines: IVaccineInfo[];
 }
 
@@ -49,6 +50,7 @@ const MemberSchema: Schema = new Schema({
     mobilePhone: {type: String, required: true},
     positiveTestDate: {type: Date, required: true},
     recoveryDate: {type: Date, required: true},
+    photoUrl: { type: String },
     vaccines: [VaccineInfoSchema],
 });
 
