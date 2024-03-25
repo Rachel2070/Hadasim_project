@@ -51,6 +51,8 @@ export const validateUniqueIdentityCardPutOrPatch = async (req: Request, res: Re
             return res.status(400).send('Another member with this ID card already exists.'); // Return error message if another member with the same ID card exists
         }
 
+        next();
+
     } catch (error) {
         console.error('Error while checking unique identity card:', error); // Log error if any
         return res.status(500).send('Internal Server Error'); // Return internal server error message

@@ -10,6 +10,6 @@ router.post('/', validateAddMember, validateUniqueIdentityCardPost, addMember);
 router.put('/:id/info', validateUpdateMember, validateUniqueIdentityCardPutOrPatch, updateMemberInfo);
 router.delete('/:id', deleteMember);
 
-router.put('/:id', validateUpdateCovidInfo, updateCovidInfo);
+router.put('/:id/covidInfo', validateUpdateCovidInfo, updateCovidInfo);
 
 export default router;
