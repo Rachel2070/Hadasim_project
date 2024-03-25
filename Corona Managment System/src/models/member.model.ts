@@ -8,7 +8,7 @@ interface IVaccineInfo {
 
 // Interface for member document, extending Mongoose Document
 export interface IMember extends Document {
-    memberCode: mongoose.Types.ObjectId;
+    // memberCode: mongoose.Types.ObjectId;
     firstName: String;
     lastName: String;
     identityCard: String;
@@ -40,7 +40,7 @@ const AddressSchema: Schema = new Schema({
 
 // Schema for member
 const MemberSchema: Schema = new Schema({
-    memberCode: { type: mongoose.Schema.Types.ObjectId, default: mongoose.Types.ObjectId },
+    // memberCode: { type: mongoose.Schema.Types.ObjectId, default: mongoose.Types.ObjectId },
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     identityCard: {type: String, required: true},
