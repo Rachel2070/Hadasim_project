@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from '@mui/material';
+import { Link } from 'react-router-dom';
 import CallIcon from '@mui/icons-material/Call';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
@@ -34,19 +34,15 @@ const Members = () => {
 
             <h2>Full Name | Identity Card | Phone Number</h2>
             <ul className="members-list">
-                {members.map(member => {
-                    return (
-                        <div>
-                            <li key={member._id}>
-                                <Link to={`/member/${member._id}`}>{member.firstName} {member.lastName}  </Link>
-                                | {member.identityCard} | {member.mobilePhone}
-                                <IconButton color="primary" aria-label="call">
-                                    <CallIcon />
-                                </IconButton>
-                            </li>
-                        </div>
-                    )
-                })};
+                {members.map(member => (
+                        <li key={member._id}>
+                            <Link to={`/member/${member._id}`}>{member.firstName} {member.lastName}  </Link>
+                            | {member.identityCard} | {member.mobilePhone}
+                            <IconButton color="primary" aria-label="call">
+                                <CallIcon />
+                            </IconButton>
+                        </li>
+                ))};
             </ul>
         </div>
 

@@ -48,8 +48,8 @@ const MemberSchema: Schema = new Schema({
     dateOfBirth: {type: Date, required: true},
     telephone: {type: String, required: true},
     mobilePhone: {type: String, required: true},
-    positiveTestDate: {type: Date, required: true},
-    recoveryDate: {type: Date, required: true},
+    positiveTestDate: {type: Date},
+    recoveryDate: {type: Date},
     photoUrl: { type: String },
     vaccines: [VaccineInfoSchema],
 });

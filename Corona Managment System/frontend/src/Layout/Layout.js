@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@mui/material';
+import { Link } from 'react-router-dom';
 import AccessibleIcon from '@mui/icons-material/Accessible';
 import IconButton from '@mui/material/IconButton';
 import './Layout.css'
