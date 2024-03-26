@@ -1,0 +1,28 @@
+.delete-member-container {
+    position: relative;
+    top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Adjust the height as needed */
+  }
+  
+  .delete-member-card {
+    width: 400px;
+    padding: 20px;
+  }
+  
+  .delete-member-card-content {
+    text-align: center;
+  }
+  
+  .delete-member-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .delete-member-button {
+    width: 150px;
+  }
+  

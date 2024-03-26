@@ -1,0 +1,32 @@
+.member-detail {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.member-detail h2 {
+    color: #333;
+}
+
+.member-detail p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.member-avatar {
+    max-width: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+}
+
+.btn-container{
+    margin-left: 30%;
+}
+
+.btn{
+    margin-right: 3%;
+}
