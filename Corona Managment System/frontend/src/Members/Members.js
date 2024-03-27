@@ -17,12 +17,14 @@ const Members = () => {
                 const membersRes = await axios.get('http://localhost:4000/api/members');
                 const sortMembers = membersRes.data.sort((a, b) => a.firstName.localeCompare(b.firstName));
                 setMembers(sortMembers);
+
             } catch (error) {
                 console.error('There was an error fetching data:', error);
             }
         };
         fetchData();
     }, []);
+
 
     return (<div className="members-container">
         <div>

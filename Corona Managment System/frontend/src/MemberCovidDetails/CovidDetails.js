@@ -98,7 +98,6 @@ function CovidInfo() {
         try {
             const res = await axios.put(`${url}/${id}/covidInfo`, updatedData);
             setMember(updatedData)
-            // navigate(`/member/${id}`);
             setEditing(false)
         } catch (error) {
             console.error('There was an error updating the member:', error);
