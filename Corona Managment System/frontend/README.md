@@ -36,7 +36,7 @@ Once the application is running, users can perform various tasks using the provi
 - View a list of all members along with their basic information.
 - Click on a member to view detailed information, including personal details, address, and contact information.
   
- ![alt text](https://drive.google.com/file/d/1VcSoQ0vAUI18j44HPblZecG5R7xxUsYV/view?usp=drive_link)
+ ![alt text](./screenshots/covid details.png)
  
 - Edit member information by clicking the "Edit" button on the member details page.
 - Delete a member from the system by clicking the "Delete" button on the member details page.
