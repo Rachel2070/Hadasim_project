@@ -5,11 +5,13 @@ import CallIcon from '@mui/icons-material/Call';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import './Members.css'
+import Calling from './Calling';
 
 
 
 const Members = () => {
     const [members, setMembers] = useState([]);
+    const [callingMemberId, setCallingMemberId] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,13 +39,15 @@ const Members = () => {
             <h2>Full Name | Identity Card | Phone Number</h2>
             <ul className="members-list">
                 {members.map(member => (
-                        <li key={member._id}>
-                            <Link to={`/member/${member._id}`}>{member.firstName} {member.lastName}  </Link>
-                            | {member.identityCard} | {member.mobilePhone}
-                            <IconButton color="primary" aria-label="call">
-                                <CallIcon />
-                            </IconButton>
-                        </li>
+                    <li key={member._id}>
+                        <Link to={`/member/${member._id}`}>{member.firstName} {member.lastName}  </Link>
+                        | {member.identityCard} | {member.mobilePhone}
+                        <IconButton color="primary" aria-label="call" onClick={() => setCallingMemberId(member._id)}>
+                            <CallIcon />
+                        </IconButton>
+                        {callingMemberId === member._id && <Calling firstName={member.firstName} lastName={member.lastName} />}
+
+                    </li>
                 ))};
             </ul>
         </div>
