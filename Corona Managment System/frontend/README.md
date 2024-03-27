@@ -35,7 +35,9 @@ To run the Covid Management System locally, follow these steps:
 Once the application is running, users can perform various tasks using the provided interface:
 - View a list of all members along with their basic information.
 - Click on a member to view detailed information, including personal details, address, and contact information.
- ![App Screenshot](https://lh3.google.com/u/0/d/1VcSoQ0vAUI18j44HPblZecG5R7xxUsYV=w1920-h868-iv1)
+  
+ ![App Screenshot](https://drive.google.com/file/d/1VcSoQ0vAUI18j44HPblZecG5R7xxUsYV/view?usp=drive_link)
+ 
 - Edit member information by clicking the "Edit" button on the member details page.
 - Delete a member from the system by clicking the "Delete" button on the member details page.
 - View COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
