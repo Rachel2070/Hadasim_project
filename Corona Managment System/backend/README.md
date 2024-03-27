@@ -4,7 +4,7 @@ Corona Management System for Health Funds.
 
 ## Description
 
-The Corona Management System is a comprehensive solution designed for health funds to manage member information with a focus on COVID-19 data tracking. This system allows health organizations to efficiently record, update, and analyze member data including vaccination status, infection history, and recovery details. Aimed at enhancing the management of pandemic-related health data, the system offers a user-friendly web interface for data entry and reporting, alongside a robust server-side API for data manipulation and retrieval.
+The Corona Management System is a comprehensive solution designed for health funds to manage member information while focusing on monitoring of COVID-19 data. This system allows healthcare organizations to efficiently record and update member data, including vaccination status, history of covid-19 infection and recovery details. Aiming to improve the management of pandemic-related health data, the system offers a user-friendly web interface for data entry and reporting, alongside a powerful server-side API for data manipulation, storage and retrieval.
 
 
 ### Getting Started
@@ -17,8 +17,8 @@ MongoDB version 4.x or higher
 
 To set up the Corona Management System for development:
 
-1. Clone the repository: `git clone https://github.com/yourusername/corona-management-system.git`
-2. Navigate to the project directory: `cd corona-management-system`
+1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.git`
+2. Navigate to the project directory: `cd Corona Managment System`
 3. Install dependencies: `npm install`
 
 ## Executing Program
@@ -43,15 +43,11 @@ Description: Retrieves details of a specific member by their ID.
 
 * Add Member
 POST `/api/members`
-Description: Adds a new member to the health fund. Requires member details in the request body. This endpoint includes validation through validateAddMember.
-
-* Upload Member Photo
-POST `/api/members/:id/photo`
-Description: Uploads or updates a photo for a member. Requires the member ID in the URL and a photo file in the request.
+Description: Adds a new member to the health fund. Requires member details in the request body. This endpoint includes validation through validateAddMember and validateUniqueIdentityCardPost.
 
 * Update Member Information
 PATCH `/api/members/:id/info`
-Description: Updates an existing member's information (excluding vaccination records). Requires member ID in the URL and updated details in the request body. This endpoint includes validation through validateUpdateMemberInfo.
+Description: Updates an existing member's information (excluding vaccination records). Requires member ID in the URL and updated details in the request body. This endpoint includes validation through validateUpdateMemberInfo and validateUniqueIdentityCardPutOrPatch.
 
 * Delete Member
 DELETE `/api/members/:id`

@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Covid Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Covid Management System is a web application built with React.js that facilitates the management of patient data and their COVID-19 related information for a health insurance fund.
 
-## Available Scripts
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Routes](#routes)
+6. [Contributing](#contributing)
+7. [License](#license)
 
-In the project directory, you can run:
+## Introduction
+The Covid Management System provides healthcare professionals with a user-friendly interface to manage patient records efficiently. It allows users to view patient details, update COVID-19 information, and perform CRUD operations on patient records.
 
-### `npm start`
+## Features
+- **View Members**: Users can view a list of all members along with their basic information such as full name, identity card, and phone number.
+- **Add New Member**: Users can add new members to the system by providing necessary details including personal information, address, and contact information.
+- **View Member Details**: Detailed information about each member can be viewed, including their personal details, address, and contact information.
+- **Edit Member Information**: Users can edit existing member information, such as updating their address or contact details.
+- **Delete Member**: Users have the option to delete a member from the system, along with all associated data.
+- **View Covid Details**: Users can view COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
+- **Update Covid Details**: Healthcare professionals can update COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
+To run the Covid Management System locally, follow these steps:
+1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.gi`
+2. Navigate to the project directory: `cd covid-management-system`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
+5. Open the application in your browser: `http://localhost:3000`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
+Once the application is running, users can perform various tasks using the provided interface:
+- View a list of all members along with their basic information.
+- Click on a member to view detailed information, including personal details, address, and contact information.
+  
+ ![alt text](https://drive.google.com/file/d/1VcSoQ0vAUI18j44HPblZecG5R7xxUsYV/view?usp=drive_link)
+ 
+- Edit member information by clicking the "Edit" button on the member details page.
+- Delete a member from the system by clicking the "Delete" button on the member details page.
+- View COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
+- Update COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
 
-### `npm test`
+## Routes
+The following routes are available in the application:
+- `/`: Home page displaying a list of all members.
+- `/member/:id`: Member details page displaying detailed information about a specific member.
+- `/member/:id/EditMember`: Form page for editing member information.
+- `/member/:id/DeleteMember`: Page for confirming deletion of a member.
+- `/member/:id/MemberCovidInfo`: Page for viewing and updating COVID-19 related information for a member.
+- `/member/addMember`: Form page for adding a new member to the system.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
