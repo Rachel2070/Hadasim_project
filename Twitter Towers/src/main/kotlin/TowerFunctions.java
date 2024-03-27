@@ -20,14 +20,15 @@ public class TowerFunctions {
         int choice = in.nextInt();
 
         if(choice==1){
-            int perimeter = 2 * height + width;
+            double hypotenuse = FindingHypotenuseByPythagoreanTheorem(height, width);
+            double perimeter = 2 * hypotenuse + width;
             System.out.println("The tower's perimeter: " + perimeter);
 
             System.out.println();
         }
         else if (choice==2) {
             if(width % 2 == 0 || width > height * 2){
-                System.out.println("The triangle cannot be printed");
+                System.out.println("The tower cannot be printed");
                 System.out.println();
             }else {
                 printTriangular(height, width);
@@ -96,6 +97,12 @@ public class TowerFunctions {
                 oddNumbers.add(i);
         }
         return oddNumbers;
+    }
+
+    private static double  FindingHypotenuseByPythagoreanTheorem(int height, int width){
+        double halfWidth = width/2;
+        double hypotenuse = Math.sqrt((Math.pow(halfWidth,2)+(Math.pow(height, 2))));
+        return hypotenuse;
     }
 
 }
