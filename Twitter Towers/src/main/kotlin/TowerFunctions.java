@@ -16,16 +16,13 @@ public class TowerFunctions {
     }
 
     public static void triangularTower(int height, int width, Scanner in){
-        System.out.println("Choose an option:");
-        System.out.println("1. Calculate the perimeter of the triangle");
-        System.out.println("2. Print the triangle");
-        System.out.println("Enter your choice:");
-
+        PresentTriangularOptions();
         int choice = in.nextInt();
 
         if(choice==1){
             int perimeter = 2 * height + width;
             System.out.println("The tower's perimeter: " + perimeter);
+
             System.out.println();
         }
         else if (choice==2) {
@@ -40,14 +37,16 @@ public class TowerFunctions {
 
     private static void printTriangular(int height, int width){
         List<Integer> oddNumbers = oddNumbersCnt(width);
+
         if(oddNumbers.size()==0){
             oddNumbers.add(1);
         }
+
         int linesPerNumber = (height-2)/oddNumbers.size();
         int extraLines = (height-2)%oddNumbers.size();
         StringBuilder spaces=new StringBuilder();
 
-        for (int j = 0; j < Math.ceil(width/2); j++) {
+        for (int j = 0; j < Math.floor(width/2); j++) {
             spaces.append(" ");
         }
 
@@ -56,7 +55,7 @@ public class TowerFunctions {
 
         System.out.print(spaces);
         System.out.println(stars);
-        if (oddNumbers.size()>1) {
+        if (oddNumbers.get(0)!=1) {
             stars.append(starsToAdd);
         }
         if(spaces.length()>1){
@@ -78,9 +77,17 @@ public class TowerFunctions {
             if (spaces.length() > 0) {
                 spaces.deleteCharAt(0);
             }
-            stars.append(starsToAdd);
+                stars.append(starsToAdd);
+
         }
         System.out.println(stars);
+    }
+
+    private  static void PresentTriangularOptions(){
+        System.out.println("Choose an option:");
+        System.out.println("1. Calculate the perimeter of the triangle");
+        System.out.println("2. Print the triangle");
+        System.out.println("Enter your choice:");
     }
 
     private static List<Integer> oddNumbersCnt(int num){
@@ -92,3 +99,6 @@ public class TowerFunctions {
     }
 
 }
+
+
+

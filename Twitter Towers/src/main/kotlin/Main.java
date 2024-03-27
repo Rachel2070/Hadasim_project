@@ -3,12 +3,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        boolean keepGoing = true;
 
         System.out.println("Hello, and welcome to Twitter Towers");
         System.out.println("These are our towers options:");
         while (true) {
-            towerOptions();
+            presentTowerOptions();
             int choice = in.nextInt();
 
             if (choice == 1) {
@@ -25,7 +24,7 @@ public class Main {
         }
     }
 
-    private static void towerOptions(){
+    private static void presentTowerOptions(){
         System.out.println("1. Rectangular Tower");
         System.out.println("2. Triangular Tower");
         System.out.println("3. Exit");
