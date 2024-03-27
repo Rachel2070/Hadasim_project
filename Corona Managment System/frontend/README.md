@@ -1,4 +1,4 @@
-# Covid Management System
+![image](https://github.com/Rachel2070/Hadasim_project/assets/154377334/cc748240-d3d0-4280-89d3-08b113ac7428)# Covid Management System
 
 The Covid Management System is a web application built with React.js that facilitates the management of patient data and their COVID-19 related information for a health insurance fund.
 
@@ -8,8 +8,6 @@ The Covid Management System is a web application built with React.js that facili
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Routes](#routes)
-6. [Contributing](#contributing)
-7. [License](#license)
 
 ## Introduction
 The Covid Management System provides healthcare professionals with a user-friendly interface to manage patient records efficiently. It allows users to view patient details, update COVID-19 information, and perform CRUD operations on patient records.
@@ -26,7 +24,7 @@ The Covid Management System provides healthcare professionals with a user-friend
 ## Installation
 To run the Covid Management System locally, follow these steps:
 1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.gi`
-2. Navigate to the project directory: `cd covid-management-system`
+2. Navigate to the project directory: `cd Corona Managment System`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
 5. Open the application in your browser: `http://localhost:3000`
@@ -34,14 +32,33 @@ To run the Covid Management System locally, follow these steps:
 ## Usage
 Once the application is running, users can perform various tasks using the provided interface:
 - View a list of all members along with their basic information.
+
 - Click on a member to view detailed information, including personal details, address, and contact information.
   
- ![alt text](./screenshots/covid details.png)
+ ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/covid%20details.png?raw=true)
  
 - Edit member information by clicking the "Edit" button on the member details page.
+
+ ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/etit%20member.png?raw=true)
+  
 - Delete a member from the system by clicking the "Delete" button on the member details page.
+
+![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/delete%20member.png?raw=true)
+
+-Add a member to the system by clicking the "Add Member" button on the top of thr members list page.
+
+![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/new%20member.png?raw=true)
+
 - View COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
+
+![alt](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/covid%20details.png?raw=true)
+
 - Update COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
+
+- ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/edit%20covid%20details.png?raw=true)
+
+
+  
 
 ## Routes
 The following routes are available in the application:
