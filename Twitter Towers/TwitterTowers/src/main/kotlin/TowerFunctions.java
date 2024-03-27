@@ -40,11 +40,14 @@ public class TowerFunctions {
 
     private static void printTriangular(int height, int width){
         List<Integer> oddNumbers = oddNumbersCnt(width);
+        if(oddNumbers.size()==0){
+            oddNumbers.add(1);
+        }
         int linesPerNumber = (height-2)/oddNumbers.size();
         int extraLines = (height-2)%oddNumbers.size();
         StringBuilder spaces=new StringBuilder();
 
-        for (int j = 0; j < width/2; j++) {
+        for (int j = 0; j < Math.ceil(width/2); j++) {
             spaces.append(" ");
         }
 
@@ -53,9 +56,12 @@ public class TowerFunctions {
 
         System.out.print(spaces);
         System.out.println(stars);
-
-        stars.append(starsToAdd);
-        spaces.deleteCharAt(0);
+        if (oddNumbers.size()>1) {
+            stars.append(starsToAdd);
+        }
+        if(spaces.length()>1){
+            spaces.deleteCharAt(0);
+        }
 
         for (int j = 0; j < extraLines; j++) {
             System.out.print(spaces);
@@ -72,7 +78,6 @@ public class TowerFunctions {
             if (spaces.length() > 0) {
                 spaces.deleteCharAt(0);
             }
-
             stars.append(starsToAdd);
         }
         System.out.println(stars);
