@@ -15,7 +15,7 @@ function MemberForm() {
     const [member, setMember] = useState(null);
     const [flag, setFlag] = useState(false);
     const { id } = useParams(); // Get the member ID from the URL parameters
-    const { register, handleSubmit, setValue } = useForm(); // Initialize useForm hook
+    const { register, handleSubmit, setValue, formState: { errors } = {} } = useForm(); // Initialize useForm hook
     const url = 'http://localhost:4000/api/members';
 
     // Fetch member data if editing an existing member
@@ -68,19 +68,131 @@ function MemberForm() {
             {flag &&
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Box sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}>
-                        {/* Form fields */}
-                        {/* Using react-hook-form register to link form inputs with form state */}
-                        <TextField required defaultValue={member?.firstName || ''} {...register("firstName")} label="First Name" variant="outlined" />
-                        <TextField required defaultValue={member?.lastName || ''} {...register("lastName")} label="Last Name" variant="outlined" />
-                        <TextField required defaultValue={member?.identityCard || ''} {...register("identityCard", { minLength: 9 })} label="Identity Card (9 digits)" variant="outlined" />
-                        <TextField required defaultValue={member?.address.street || ''} {...register("address.street")} label="Street" variant="outlined" />
-                        <TextField required defaultValue={member?.address.number} {...register("address.number")} label="Building Number" variant="outlined" />
-                        <TextField required defaultValue={member?.address.city || ''} {...register("address.city")} label="City" variant="outlined" />
-                        <TextField required defaultValue={moment(member?.dateOfBirth).format('YYYY-MM-DD') || moment(new Date()).format('YYYY-MM-DD')} {...register("dateOfBirth")} label="Date Of Birth" variant="outlined" type='date' />
-                        <TextField required defaultValue={member?.telephone || ''} {...register("telephone")} label="Telephone" variant="outlined" />
-                        <TextField required defaultValue={member?.mobilePhone || ''} {...register("mobilePhone")} label="Mobile Phone" variant="outlined" />
+                        <TextField
+                            required
+                            defaultValue={member?.firstName || ''}
+                            label="First Name"
+                            variant="outlined"
+                            {...register("firstName", {
+                                required: "First Name is required",
+                                pattern: {
+                                    value: /^[^\d]+$/,
+                                    message: "First Name must contain only letters"
+                                }
+                            })}
+                            error={Boolean(errors?.firstName)}
+                            helperText={errors?.firstName?.message || ""}
+                        />
+
+                        <TextField
+                            required
+                            defaultValue={member?.lastName || ''}
+                            label="Last Name"
+                            variant="outlined"
+                            {...register("lastName", {
+                                required: "Last Name is required",
+                                pattern: {
+                                    value: /^[^\d]+$/,
+                                    message: "Last Name must contain only letters"
+                                }
+                            })}
+                            error={Boolean(errors?.lastName)}
+                            helperText={errors?.lastName?.message || ""}
+                        />
+
+                        <TextField
+                            required
+                            defaultValue={member?.identityCard || ''}
+                            label="Identity Card"
+                            variant="outlined"
+                            {...register("identityCard", {
+                                required: "Identity Card is required",
+                                minLength: {
+                                    value: 9,
+                                    message: "Identity Card must have at least 9 digits"
+                                },
+                                pattern: {
+                                    value: /^[0-9]+$/,
+                                    message: "Identity Card must contain only digits"
+                                }
+                            })}
+                            error={Boolean(errors.identityCard)}
+                            helperText={errors.identityCard ? errors.identityCard.message : ""}
+                        />
+
+                        <TextField
+                            required
+                            defaultValue={member?.address.street || ''}
+                            label="Street"
+                            variant="outlined"
+                            {...register("address.street", {
+                                required: "Street is required",
+                                pattern: {
+                                    value: /^[^\d]+$/,
+                                    message: "Street must contain only letters"
+                                }
+                            })}
+                            error={Boolean(errors?.address?.street)}
+                            helperText={errors?.address?.street?.message || ""}
+                        />
+
+                        <TextField
+                            required
+                            defaultValue={member?.address.number || ''}
+                            label="Building Number"
+                            variant="outlined"
+                            {...register("address.number", {
+                                required: "Building Number is required",
+                                pattern: {
+                                    value: /^[0-9]+$/,
+                                    message: "Building Number must contain only digits"
+                                }
+                            })}
+                            error={Boolean(errors?.address?.number)}
+                            helperText={errors?.address?.number?.message || ""}
+                        />
+
+                        <TextField
+                            required
+                            defaultValue={member?.address.city || ''}
+                            label="City"
+                            variant="outlined"
+                            {...register("address.city", {
+                                required: "City is required",
+                                pattern: {
+                                    value: /^[^\d]+$/, // Use /^[^\d]+$/ to match only letters (no digits)
+                                    message: "City must contain only letters"
+                                }
+                            })}
+                            error={Boolean(errors?.address?.city)}
+                            helperText={errors?.address?.city?.message || ""}
+                        />
+
+                        <TextField
+                            required
+                            defaultValue={moment(member?.dateOfBirth).format('YYYY-MM-DD') || moment(new Date()).format('YYYY-MM-DD')}
+                            {...register("dateOfBirth")}
+                            label="Date Of Birth"
+                            variant="outlined"
+                            type='date'
+                        />
+
+                        <TextField
+                            required
+                            defaultValue={member?.telephone || ''}
+                            {...register("telephone")}
+                            label="Telephone"
+                            variant="outlined"
+                        />
+
+                        <TextField
+                            required
+                            defaultValue={member?.mobilePhone || ''}
+                            {...register("mobilePhone")}
+                            label="Mobile Phone"
+                            variant="outlined"
+                        />
                     </Box>
-                    {/* Display member avatar if available */}
                     {member?.photoUrl &&
                         <Box display="flex" justifyContent="center">
                             <img src={member.photoUrl} alt="Member avatar" className="member-avatar" />
