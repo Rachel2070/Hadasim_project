@@ -10,8 +10,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import './CovidDetails.css';
 
-
-
 const vaccineManufacturers = [
     { label: 'Pfizer', value: 'Pfizer' },
     { label: 'Moderna', value: 'Moderna' },
@@ -20,9 +18,10 @@ const vaccineManufacturers = [
     { label: 'Sinovac', value: 'Sinovac' },
 ];
 
+// Component for displaying and editing COVID-19 details of a member
 function CovidInfo() {
     const [member, setMember] = useState(null);
-    const [editing, setEditing] = useState(false); // Corrected spelling of "editing"
+    const [editing, setEditing] = useState(false); // State for editing mode
 
     const { id } = useParams(); // Get the member ID from the URL parameters
     const url = 'http://localhost:4000/api/members';
@@ -32,10 +31,11 @@ function CovidInfo() {
         vaccines: [],
     });
 
+    // Fetch member data when component mounts or when editing state changes
     useEffect(() => {
         const fetchMember = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/members/${id}`);
+                const response = await axios.get(`${url}/${id}`);
                 setMember(response.data);
                 const memberData = response.data;
                 const sortedVaccines = memberData.vaccines.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -53,11 +53,9 @@ function CovidInfo() {
         fetchMember();
     }, [id, editing]);
 
-
+    // Handle input change for COVID-19 details
     const handleInputChange = (index, field, value) => {
-        // Check if the change is for the vaccines array
         if (index >= 0) {
-            // Update a specific vaccine's data
             const newVaccines = updatedData.vaccines.map((vaccine, idx) => {
                 if (idx === index) {
                     return { ...vaccine, [field]: value };
@@ -69,7 +67,6 @@ function CovidInfo() {
                 vaccines: newVaccines,
             }));
         } else {
-            // Update positiveTestDate or recoveryDate directly
             setUpdatedData(prevState => ({
                 ...prevState,
                 [field]: value,
@@ -77,6 +74,7 @@ function CovidInfo() {
         }
     };
 
+    // Add a new vaccine entry
     const handleAddVaccine = () => {
         if (updatedData.vaccines.length < 4) {
             setUpdatedData({
@@ -86,6 +84,7 @@ function CovidInfo() {
         }
     };
 
+    // Delete a vaccine entry
     const handleDeleteVaccine = (index) => {
         const newVaccines = updatedData.vaccines.filter((_, idx) => idx !== index);
         setUpdatedData({
@@ -94,18 +93,19 @@ function CovidInfo() {
         });
     };
 
+    // Save updated COVID-19 information
     const handleSave = async () => {
         try {
             const res = await axios.put(`${url}/${id}/covidInfo`, updatedData);
-            setMember(updatedData)
-            setEditing(false)
+            setMember(updatedData);
+            setEditing(false);
         } catch (error) {
             console.error('There was an error updating the member:', error);
             alert(error.response.data);
         }
-
     }
 
+    // Render the component based on editing state and member data availability
     if (!member) {
         return <div>Loading...</div>;
     }
@@ -115,6 +115,7 @@ function CovidInfo() {
             <div className="member-covid-detail">
                 {editing ?
                     <div>
+                        {/* Form for editing COVID-19 details */}
                         <form>
                             <h2>Positive Test Date:
                                 <TextField
@@ -141,7 +142,6 @@ function CovidInfo() {
                                             defaultValue={vaccine.date ? moment(vaccine.date).format('YYYY-MM-DD') : ''}
                                             onChange={(e) => handleInputChange(index, 'date', e.target.value)}
                                             inputProps={{ style: { width: '200px' } }} // Adjust the width as needed
-                                            
                                         />
                                         <FormControl variant="outlined" fullWidth>
                                             <InputLabel>Manufacturer</InputLabel>
@@ -162,7 +162,6 @@ function CovidInfo() {
                                         </FormControl>
                                         <Button variant="contained" type='button' onClick={() => handleDeleteVaccine(index)} style={{ marginLeft: '10px' }}>Delete</Button>
                                     </div>
-
                                 ))}
                                 {updatedData.vaccines.length < 4 && (
                                     <Button variant="contained" onClick={handleAddVaccine} type='button' style={{ marginTop: '3%' }}>Add Vaccine</Button>
@@ -176,6 +175,7 @@ function CovidInfo() {
                     </div>
                     :
                     <div>
+                        {/* Display COVID-19 details */}
                         <h2>Positive Test Date:  {member.positiveTestDate ? moment(member.positiveTestDate).format('DD/MM/YYYY') : ''}</h2>
                         <h2>Recovery Date:       {member.recoveryDate ? moment(member.recoveryDate).format('DD/MM/YYYY') : ''}</h2>
                         <ul className='vaccine-list'>

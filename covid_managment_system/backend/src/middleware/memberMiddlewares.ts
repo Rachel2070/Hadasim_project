@@ -20,14 +20,12 @@ export const validateUpdateMember = (req: Request, res: Response, next: NextFunc
     next(); // Move to the next middleware if validation passes
 };
 
-// Middleware to check if the identity card of the member is unique
+// Middleware to check if the identity card of the member is unique for POST requests
 export const validateUniqueIdentityCardPost = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { identityCard } = req.body; // Get identity card from request body
-
-        // Check if the request method is POST or PUT/PATCH
-        // For POST requests, check if any member exists with the same identity card
-        const existingMember = await MemberSchema.findOne({ identityCard });
+        const existingMember = await MemberSchema.findOne({ identityCard }); // Find member by identity card
+        
         if (existingMember) {
             return res.status(400).send('A member with this ID card already exists.'); // Return error message if member already exists
         }
@@ -39,11 +37,10 @@ export const validateUniqueIdentityCardPost = async (req: Request, res: Response
     }
 };
 
-
+// Middleware to check if the identity card of the member is unique for PUT/PATCH requests
 export const validateUniqueIdentityCardPutOrPatch = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { identityCard } = req.body; // Get identity card from request body
-        // For PUT/PATCH requests, exclude the current member being updated from the check
         const { id } = req.params; // Get member ID from request parameters
         const existingMember = await MemberSchema.findOne({ _id: { $ne: id }, identityCard }); // Find member by ID and identity card
         
@@ -51,7 +48,7 @@ export const validateUniqueIdentityCardPutOrPatch = async (req: Request, res: Re
             return res.status(400).send('Another member with this ID card already exists.'); // Return error message if another member with the same ID card exists
         }
 
-        next();
+        next(); // Move to the next middleware if validation passes
 
     } catch (error) {
         console.error('Error while checking unique identity card:', error); // Log error if any
@@ -59,6 +56,7 @@ export const validateUniqueIdentityCardPutOrPatch = async (req: Request, res: Re
     };
 };
 
+// Middleware to validate the request body for updating COVID-19 information
 export const validateUpdateCovidInfo = (req: Request, res: Response, next: NextFunction) => {
     const { error } = updateCovidInfoSchema.validate(req.body); // Validate request body against the update member schema
     if (error) {
@@ -66,4 +64,3 @@ export const validateUpdateCovidInfo = (req: Request, res: Response, next: NextF
     }
     next(); // Move to the next middleware if validation passes
 }
-

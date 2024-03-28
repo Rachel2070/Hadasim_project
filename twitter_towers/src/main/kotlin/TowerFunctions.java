@@ -3,30 +3,38 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TowerFunctions {
+    // Scanner object for user input
     Scanner in = new Scanner(System.in);
+
+    // Function to calculate the area or perimeter of a rectangular tower based on its dimensions
     public static void rectangularTower(int height, int width){
         if(height == width || Math.abs(height-width)>5){
+            // If height equals width or the absolute difference is greater than 5, calculate area
             System.out.println("The tower's area: " + height * width);
             System.out.println();
         }
         else {
+            // Otherwise, calculate perimeter
             System.out.println("The tower's perimeter: " + 2 * (height + width));
             System.out.println();
         }
     }
 
+    // Function to handle triangular tower operations
     public static void triangularTower(int height, int width, Scanner in){
+        // Present options for triangular tower
         PresentTriangularOptions();
         int choice = in.nextInt();
 
         if(choice==1){
+            // Calculate the perimeter of the triangle
             double hypotenuse = FindingHypotenuseByPythagoreanTheorem(height, width);
             double perimeter = 2 * hypotenuse + width;
             System.out.println("The tower's perimeter: " + perimeter);
-
             System.out.println();
         }
         else if (choice==2) {
+            // Print the triangle if conditions are met
             if(width % 2 == 0 || width > height * 2){
                 System.out.println("The tower cannot be printed");
                 System.out.println();
@@ -36,7 +44,9 @@ public class TowerFunctions {
         }
     }
 
+    // Function to print a triangular tower
     private static void printTriangular(int height, int width){
+        // Calculate odd numbers for constructing the triangle
         List<Integer> oddNumbers = oddNumbersCnt(width);
 
         if(oddNumbers.size()==0){
@@ -84,6 +94,7 @@ public class TowerFunctions {
         System.out.println(stars);
     }
 
+    // Function to present options for triangular tower
     private  static void PresentTriangularOptions(){
         System.out.println("Choose an option:");
         System.out.println("1. Calculate the perimeter of the triangle");
@@ -91,6 +102,7 @@ public class TowerFunctions {
         System.out.println("Enter your choice:");
     }
 
+    // Function to generate a list of odd numbers up to a given number
     private static List<Integer> oddNumbersCnt(int num){
         List<Integer> oddNumbers = new ArrayList<>();
         for (int i = 3; i < num; i+=2) {
@@ -99,6 +111,7 @@ public class TowerFunctions {
         return oddNumbers;
     }
 
+    // Function to calculate the hypotenuse of a right triangle using the Pythagorean theorem
     private static double  FindingHypotenuseByPythagoreanTheorem(int height, int width){
         double halfWidth = width/2;
         double hypotenuse = Math.sqrt((Math.pow(halfWidth,2)+(Math.pow(height, 2))));
@@ -106,6 +119,3 @@ public class TowerFunctions {
     }
 
 }
-
-
-

@@ -9,17 +9,16 @@ import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
+// Component for displaying calling dialog
+const Calling = ({ firstName, lastName }) => {
+    const [open, setOpen] = React.useState(true); // State for dialog open/close
 
-
-const Calling = (memberName) => {
-    const { firstName, lastName } = memberName;
-    const [open, setOpen] = React.useState(true);
-
-
+    // Function to handle dialog close
     const handleClose = () => {
         setOpen(false);
     };
 
+    // Render calling dialog
     return (
         <React.Fragment>
             <Dialog
@@ -30,16 +29,19 @@ const Calling = (memberName) => {
             >
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
+                        {/* Display call icon and member's name */}
                         <IconButton color="primary" aria-label="call">
                             <CallIcon />
                         </IconButton>
                         Calling {firstName} {lastName}
                     </DialogContentText>
+                    {/* Display linear progress bar */}
                     <Box sx={{ width: '100%' }}>
                         <LinearProgress />
                     </Box>
                 </DialogContent>
                 <DialogActions>
+                    {/* Button to hang up the call */}
                     <Button onClick={handleClose} autoFocus>
                         Hang up
                     </Button>
@@ -47,7 +49,6 @@ const Calling = (memberName) => {
             </Dialog>
         </React.Fragment>
     );
-
 }
 
 export default Calling;

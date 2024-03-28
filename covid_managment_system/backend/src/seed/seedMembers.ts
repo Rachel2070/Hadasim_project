@@ -1,9 +1,10 @@
 import mongoose, { connect, disconnect } from "mongoose";
 import { faker } from "@faker-js/faker";
 
-import Member from '../models/member.model';
-import {mongoUri} from '../database';
+import Member from '../models/member.model'; 
+import { mongoUri } from '../database';
 
+// Array of vaccine manufacturers
 const vaccineManufacturers = [
     "Pfizer",
     "Moderna",
@@ -12,6 +13,7 @@ const vaccineManufacturers = [
     "Sinovac"
 ];
 
+// Function to generate unique digits for identity cards
 const generateUniqueDigits = (length: number, existingIdentityCards: Set<string>) => {
     let result = '';
 
@@ -27,6 +29,7 @@ const generateUniqueDigits = (length: number, existingIdentityCards: Set<string>
     return result;
 };
 
+// Function to generate a random phone number
 const generateRandomPhoneNumber = () => {
     const prefix = Math.floor(Math.random() * (999 - 100 + 1)) + 100;
     const firstThreeDigits = Math.floor(Math.random() * 1000);
@@ -37,6 +40,7 @@ const generateRandomPhoneNumber = () => {
     return phoneNumber;
 };
 
+// Function to generate mock member data
 const generateMembers = (numMembers: number) => {
     const existingIdentityCards: Set<string> = new Set();
     return Array.from({ length: numMembers }, () => ({
@@ -63,25 +67,28 @@ const generateMembers = (numMembers: number) => {
     }));
 };
 
+// Function to seed the database with mock member data
 const seedMembers = async () => {
-    try{
-        await connect(mongoUri);
+    try {
+        await connect(mongoUri); // Connect to MongoDB database
         console.log('Connected to MongoDB.');
 
-        await Member.deleteMany({});
+        await Member.deleteMany({}); // Remove existing members from the database
         console.log('Existing members removed.');
 
-        const members = generateMembers(50);
-        await Member.insertMany(members);
+        const members = generateMembers(50); // Generate mock member data
+        await Member.insertMany(members); // Insert mock member data into the database
         console.log('Database seeded with members.');
 
-        await disconnect();
+        await disconnect(); // Disconnect from MongoDB database
         console.log('Disconnected from MongoDB.');
-    }catch(error){
-        console.error("Database seeding error:", error);
+    } catch (error) {
+        console.error("Database seeding error:", error); // Handle any errors that occur during database seeding
     }
 };
 
+// Check if the script is executed directly
+// If so, call the seedMembers function to seed the database
 if(require.main === module) {
     seedMembers();
 }

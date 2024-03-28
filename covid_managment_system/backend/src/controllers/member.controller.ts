@@ -1,15 +1,13 @@
 import { Request, Response } from 'express';
 import Member from '../models/member.model'
 
-// Controller function to get all members
+// Controller function to get all members from the database
 export const getMembers = async (req: Request, res: Response) => {
     try {
         // Retrieve all members from the database
         const members = await Member.find();
-        // Send a successful response with the retrieved members
         res.status(200).json(members);
     } catch (error) {
-        // Handle any errors that occur during the operation and send an error response
         res.status(500).send((error as Error).message)
     }
 };
@@ -23,33 +21,28 @@ export const getMember = async (req: Request, res: Response) => {
         const member = await Member.findById(memberId);
         // Check if the member exists
         if (!member) {
-            // If the member does not exist, send a 404 (Not Found) response
             return res.status(404).send('Member not found');
         }
-        // Send a successful response with the retrieved member
         res.status(200).json(member);
     } catch (error) {
-        // Handle any errors that occur during the operation and send an error response
         res.status(500).send((error as Error).message);
     }
 };
 
-// Controller function to add a new member
+// Controller function to add a new member to the database
 export const addMember = async (req: Request, res: Response) => {
     try {
         // Create a new member instance with the data from the request body
         const newMember = new Member(req.body);
         // Save the new member to the database
         await newMember.save();
-        // Send a successful response with the newly created member
         res.status(201).json(newMember);
     } catch (error) {
-        // Handle any errors that occur during the operation and send an error response
         res.status(500).send((error as Error).message);
     }
 };
 
-// Controller function to update member information
+// Controller function to update member information in the database
 export const updateMemberInfo = async (req: Request, res: Response) => {
     const memberId = req.params.id;
     const updatedData = req.body;
@@ -63,18 +56,15 @@ export const updateMemberInfo = async (req: Request, res: Response) => {
 
         // Check if the member was not found
         if (!updatedMember) {
-            // If the member was not found, send a 404 (Not Found) response
             return res.status(404).send('Member not found');
         }
-        // Send a successful response with the updated member
         res.status(200).json(updatedMember);
     } catch (error) {
-        // Handle any errors that occur during the operation and send an error response
         res.status(500).send((error as Error).message);
     }
 }
 
-// Controller function to delete a member
+// Controller function to delete a member from the database
 export const deleteMember = async (req: Request, res: Response) => {
     const memberId = req.params.id;
     try {
@@ -82,18 +72,15 @@ export const deleteMember = async (req: Request, res: Response) => {
         const deletedMember = await Member.findByIdAndDelete(memberId);
         // Check if the member was not found
         if (!deletedMember) {
-            // If the member was not found, send a 404 (Not Found) response
             return res.status(404).send('Member not found');
         }
-        // Send a successful response indicating that the member was deleted
         res.json({ message: 'Member deleted successfully' });
     } catch (error) {
-        // Handle any errors that occur during the operation and send an error response
         res.status(500).send((error as Error).message);
     }
 }
 
-// Controller function to update COVID-19 information for a member
+// Controller function to update COVID-19 information for a member in the database
 export const updateCovidInfo = async (req: Request, res: Response) => {
     const memberId = req.params.id;
     const { positiveTestDate, recoveryDate, vaccines } = req.body;
@@ -107,14 +94,11 @@ export const updateCovidInfo = async (req: Request, res: Response) => {
         );
         // Check if the member was not found
         if (!updatedCovidInfo) {
-            // If the member was not found, send a 404 (Not Found) response
             return res.status(404).send('Member not found');
         }
-        // Send a successful response with the updated COVID-19 information
         res.status(200).json(updatedCovidInfo);
 
     } catch (error) {
-        // Handle any errors that occur during the operation and send an error response
         res.status(500).send((error as Error).message);
     }
 }

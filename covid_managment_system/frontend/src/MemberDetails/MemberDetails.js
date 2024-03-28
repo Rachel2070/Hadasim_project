@@ -4,10 +4,12 @@ import axios from 'axios';
 import Button from '@mui/material/Button';
 import './MemberDetails.css'
 
+// Component for displaying details of a member
 const MemberDetails = () => {
     const [member, setMember] = useState(null);
     const { id } = useParams();
 
+    // Fetch member details when component mounts
     useEffect(() => {
         const fetchMember = async () => {
             try {
@@ -20,10 +22,12 @@ const MemberDetails = () => {
         fetchMember();
     }, [id]);
 
+    // Render loading message if member data is not available yet
     if (!member) {
         return <div>Loading...</div>
     };
 
+    // Render member details
     return (
         <div className="member-detail">
             <h2>{member.firstName} {member.lastName}</h2>
@@ -34,6 +38,7 @@ const MemberDetails = () => {
             <p>Mobile Phone: {member.mobilePhone}</p>
             {member.photoUrl && <img src={member.photoUrl} alt="Member avatar" className="member-avatar" />}
 
+            {/* Navigation buttons */}
             <div className='btn-container'>
                 <Link to={`/`} className='btn'>
                     <Button variant="contained">Back</Button>

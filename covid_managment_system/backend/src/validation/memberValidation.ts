@@ -1,5 +1,6 @@
 import Joi from "joi";
 
+// Schema for validating request body when adding a new member
 export const addMemberSchema = Joi.object({
     firstName: Joi.string().required(),
     lastName: Joi.string().required(),
@@ -14,7 +15,7 @@ export const addMemberSchema = Joi.object({
     mobilePhone: Joi.string().required(),
 });
 
-
+// Schema for validating request body when updating member information
 export const updateMemberInfoSchema = Joi.object({
     firstName: Joi.string().optional(),
     lastName: Joi.string().optional(),
@@ -27,11 +28,11 @@ export const updateMemberInfoSchema = Joi.object({
     dateOfBirth: Joi.date().optional(),
     telephone: Joi.string().optional(),
     mobilePhone: Joi.string().optional(),
-}).min(1);
+});
 
-
+// Schema for validating request body when updating COVID-19 information
 export const updateCovidInfoSchema = Joi.object({
     positiveTestDate: Joi.date().optional(),
     recoveryDate: Joi.date().optional(),
     vaccines : Joi.array().optional(),
-}).min(1);
+});
