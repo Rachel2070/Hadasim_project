@@ -23,23 +23,28 @@ The Covid Management System provides healthcare professionals with a user-friend
 
 ## Installation
 To run the Covid Management System locally, follow these steps:
-1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.gi`
-2. Navigate to the project directory: `cd Corona Managment System`
+1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.git`
+2. Navigate to the project directory: `cd covid_managment_system\frontend`
 3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open the application in your browser: `http://localhost:3000`
+
+
+## Executing Program
+To run the system locally:
+
+1. Start the server: `npm start`
+2. Open the application in your browser: `http://localhost:3000`
 
 ## Usage
 Once the application is running, users can perform various tasks using the provided interface:
 - View a list of all members along with their basic information.
-  -- Assumption: Currently there is no possibility to find a member according to parameters
-![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/list.png?raw=true)
+  
+![members-list](https://github.com/Rachel2070/Hadasim_project/blob/main/covid_managment_system/frontend/screenshots/list%20(2).png?raw=true)
 
 - Add a member to the system by clicking the "Add Member" button on the top of thr members list page.
 
 - Click on a member to view detailed information, including personal details, address, and contact information.
   
- ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/details.png?raw=true)
+ ![member-detail](https://github.com/Rachel2070/Hadasim_project/blob/main/covid_managment_system/frontend/screenshots/member_details.png%20.png?raw=true)
  
 - Edit member information by clicking the "Edit" button on the member details page.
   
@@ -47,7 +52,7 @@ Once the application is running, users can perform various tasks using the provi
 
 - View COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
 
-![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/covid%20details.png?raw=true)
+![covid-details](https://github.com/Rachel2070/Hadasim_project/blob/main/covid_managment_system/frontend/screenshots/covid%20details.png?raw=true)
 
 - Update COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
 
@@ -63,3 +68,13 @@ The following routes are available in the application:
 - `/member/addMember`: Form page for adding a new member to the system.
 
 
+## Assumptions
+ Foundational assumptions I relied on:
+ - Currently the format of the phone number and the mobile phone are the same
+ - I worked according to the requirements of the task - deleting a member.The possibility of changing status should be considered instead of deletion.
+ - At the moment it is not possible to upload a picture from the user side, but when seeding the dummy data I did place a picture automatically.
+ - I assumed that when adding a new member to the health insurance fund, their standard data will usually be taken - and only after adding the covid-19 data.
+ - The most correct way to select a city for a member (either by adding or updating) is to make a selection from a list of cities - at the moment I haven't done it.
+ - I assumed that the dates that will be entered (between birth dates and between the dates of the Covid-19 data) will be valid dates - not future ones.
+ - The presentation of the members can be divided into several pages, at the moment I have presented them on one scrolling page.
+ - By clicking the phone button next to the member, a dialing window opens (currently only visual), for the future possibility of direct dialing to the member
