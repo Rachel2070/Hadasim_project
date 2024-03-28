@@ -26,20 +26,25 @@ To run the Covid Management System locally, follow these steps:
 1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.gi`
 2. Navigate to the project directory: `cd covid_managment_system\frontend`
 3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open the application in your browser: `http://localhost:3000`
+
+
+## Executing Program
+To run the system locally:
+
+1. Start the server: `npm start`
+2. Open the application in your browser: `http://localhost:3000`
 
 ## Usage
 Once the application is running, users can perform various tasks using the provided interface:
 - View a list of all members along with their basic information.
   
-![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/list.png?raw=true)
+![members-list](https://github.com/Rachel2070/Hadasim_project/blob/main/covid_managment_system/frontend/screenshots/list%20(2).png?raw=true)
 
 - Add a member to the system by clicking the "Add Member" button on the top of thr members list page.
 
 - Click on a member to view detailed information, including personal details, address, and contact information.
   
- ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/details.png?raw=true)
+ ![member-detail](https://github.com/Rachel2070/Hadasim_project/blob/main/covid_managment_system/frontend/screenshots/member_details.png%20.png?raw=true)
  
 - Edit member information by clicking the "Edit" button on the member details page.
   
@@ -47,7 +52,7 @@ Once the application is running, users can perform various tasks using the provi
 
 - View COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
 
-![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/covid%20details.png?raw=true)
+![covid-details](https://github.com/Rachel2070/Hadasim_project/blob/main/covid_managment_system/frontend/screenshots/covid%20details.png?raw=true)
 
 - Update COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
 
