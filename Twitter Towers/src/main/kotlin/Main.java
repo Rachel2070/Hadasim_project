@@ -28,13 +28,13 @@ public class Main {
         System.out.println("1. Rectangular Tower");
         System.out.println("2. Triangular Tower");
         System.out.println("3. Exit");
-        System.out.println("Enter your choice (Integers only):");
+        System.out.println("Enter your choice:");
     }
 
     private static void handleRectangularTower(Scanner in) {
-        System.out.println("Enter height");
+        System.out.println("Enter height (positive integers):");
         int height = in.nextInt();
-        System.out.println("Enter width");
+        System.out.println("Enter width (positive integers):");
         int width = in.nextInt();
 
         TowerFunctions.rectangularTower(height, width);
@@ -42,9 +42,9 @@ public class Main {
 
     private static void handleTriangularTower(Scanner in) {
         System.out.println("");
-        System.out.println("Enter height");
+        System.out.println("Enter height (positive integers):");
         int height = in.nextInt();
-        System.out.println("Enter width (greater than 1)");
+        System.out.println("Enter width (positive integers, greater than 1)");
         int width = in.nextInt();
 
         TowerFunctions.triangularTower(height, width, in);

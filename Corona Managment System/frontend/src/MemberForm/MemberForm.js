@@ -70,11 +70,11 @@ function MemberForm() {
                     <Box sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}>
                         <TextField required defaultValue={member?.firstName || ''}      {...register("firstName")} label="First Name" variant="outlined" />
                         <TextField required defaultValue={member?.lastName || ''}       {...register("lastName")} label="Last Name" variant="outlined" />
-                        <TextField required defaultValue={member?.identityCard || ''}   {...register("identityCard", {minLength: 9})} label="Identity Card (9 digits)" variant="outlined" />
+                        <TextField required defaultValue={member?.identityCard || ''}   {...register("identityCard", { minLength: 9 })} label="Identity Card (9 digits)" variant="outlined" />
                         <TextField required defaultValue={member?.address.street || ''} {...register("address.street")} label="Street" variant="outlined" />
                         <TextField required defaultValue={member?.address.number}       {...register("address.number")} label="Building Number" variant="outlined" />
                         <TextField required defaultValue={member?.address.city || ''}   {...register("address.city")} label="City" variant="outlined" />
-                        <TextField required defaultValue={moment(member?.dateOfBirth).format('DD/MM/YYYY') || moment(new Date()).format('DD/MM/YYYY')} {...register("dateOfBirth")} label="Date Of Birth" variant="outlined" /*type='date'*/ />
+                        <TextField required defaultValue={moment(member?.dateOfBirth).format('YYYY-MM-DD') || moment(new Date()).format('YYYY-MM-DD')} {...register("dateOfBirth")} label="Date Of Birth" variant="outlined" type='date' />
                         <TextField required defaultValue={member?.telephone || ''}      {...register("telephone")} label="Telephone" variant="outlined" />
                         <TextField required defaultValue={member?.mobilePhone || ''}    {...register("mobilePhone")} label="Mobile Phone" variant="outlined" />
                     </Box>

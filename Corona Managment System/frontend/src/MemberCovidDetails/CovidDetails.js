@@ -81,7 +81,7 @@ function CovidInfo() {
         if (updatedData.vaccines.length < 4) {
             setUpdatedData({
                 ...updatedData,
-                vaccines: [...updatedData.vaccines, { date: '', manufacturer: '' }],
+                vaccines: [...updatedData.vaccines, { date: moment(new Date()).format('YYYY-MM-DD'), manufacturer: '' }],
             });
         }
     };
@@ -140,7 +140,8 @@ function CovidInfo() {
                                             type='date'
                                             defaultValue={vaccine.date ? moment(vaccine.date).format('YYYY-MM-DD') : ''}
                                             onChange={(e) => handleInputChange(index, 'date', e.target.value)}
-                                            inputProps={{ style: { width: '150px' } }} // Adjust the width as needed
+                                            inputProps={{ style: { width: '200px' } }} // Adjust the width as needed
+                                            
                                         />
                                         <FormControl variant="outlined" fullWidth>
                                             <InputLabel>Manufacturer</InputLabel>
@@ -149,7 +150,7 @@ function CovidInfo() {
                                                 value={vaccine.manufacturer || ''}
                                                 onChange={(e) => handleInputChange(index, 'manufacturer', e.target.value)}
                                                 label="Manufacturer"
-                                                style={{ width: '150px' }} // Adjust the width as needed
+                                                style={{ width: '200px' }} // Adjust the width as needed
                                             >
                                                 <MenuItem value="">Manufacturer</MenuItem>
                                                 {vaccineManufacturers.map((manufacturer) => (
@@ -175,8 +176,8 @@ function CovidInfo() {
                     </div>
                     :
                     <div>
-                        <h2>Positive Test Date: {member.positiveTestDate ? moment(member.positiveTestDate).format('DD/MM/YYYY') : ''}</h2>
-                        <h2>Recovery Date: {member.recoveryDate ? moment(member.recoveryDate).format('DD/MM/YYYY') : ''}</h2>
+                        <h2>Positive Test Date:  {member.positiveTestDate ? moment(member.positiveTestDate).format('DD/MM/YYYY') : ''}</h2>
+                        <h2>Recovery Date:       {member.recoveryDate ? moment(member.recoveryDate).format('DD/MM/YYYY') : ''}</h2>
                         <ul className='vaccine-list'>
                             {member.vaccines.map(vaccine => (
                                 <li key={vaccine.date}>
