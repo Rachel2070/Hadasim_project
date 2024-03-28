@@ -33,7 +33,7 @@ const Calling = ({ firstName, lastName }) => {
                         <IconButton color="primary" aria-label="call">
                             <CallIcon />
                         </IconButton>
-                        Calling {firstName} {lastName}
+                       (Future feature) Calling {firstName} {lastName}
                     </DialogContentText>
                     {/* Display linear progress bar */}
                     <Box sx={{ width: '100%' }}>
