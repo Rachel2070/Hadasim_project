@@ -23,7 +23,7 @@ The Covid Management System provides healthcare professionals with a user-friend
 
 ## Installation
 To run the Covid Management System locally, follow these steps:
-1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.gi`
+1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.git`
 2. Navigate to the project directory: `cd covid_managment_system\frontend`
 3. Install dependencies: `npm install`
 
