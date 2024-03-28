@@ -1,4 +1,4 @@
-![image](https://github.com/Rachel2070/Hadasim_project/assets/154377334/cc748240-d3d0-4280-89d3-08b113ac7428)# Covid Management System
+# Covid Management System
 
 The Covid Management System is a web application built with React.js that facilitates the management of patient data and their COVID-19 related information for a health insurance fund.
 
