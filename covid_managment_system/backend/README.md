@@ -18,14 +18,14 @@ MongoDB version 4.x or higher
 To set up the Corona Management System for development:
 
 1. Clone the repository: `git clone https://github.com/Rachel2070/Hadasim_project.git`
-2. Navigate to the project directory: `cd Corona Managment System`
+2. Navigate to the project directory: `cd covid_managment_system\backend`
 3. Install dependencies: `npm install`
 
 ## Executing Program
 
 To run the system locally:
 
-1. Start the server: `npm start`
+1. Start the server: `npm run start`
 2. Seed the database (optional):`npm run seed`
 
 
