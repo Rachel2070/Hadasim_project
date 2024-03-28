@@ -32,31 +32,24 @@ To run the Covid Management System locally, follow these steps:
 ## Usage
 Once the application is running, users can perform various tasks using the provided interface:
 - View a list of all members along with their basic information.
+  -- Assumption: Currently there is no possibility to find a member according to parameters
+![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/list.png?raw=true)
+
+- Add a member to the system by clicking the "Add Member" button on the top of thr members list page.
 
 - Click on a member to view detailed information, including personal details, address, and contact information.
   
- ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/covid%20details.png?raw=true)
+ ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/details.png?raw=true)
  
 - Edit member information by clicking the "Edit" button on the member details page.
-
- ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/etit%20member.png?raw=true)
   
 - Delete a member from the system by clicking the "Delete" button on the member details page.
 
-![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/delete%20member.png?raw=true)
-
--Add a member to the system by clicking the "Add Member" button on the top of thr members list page.
-
-![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/new%20member.png?raw=true)
-
 - View COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
 
-![alt](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/covid%20details.png?raw=true)
+![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/covid%20details.png?raw=true)
 
 - Update COVID-19 related information for each member, including positive test date, recovery date, and vaccine details.
-
-- ![alt text](https://github.com/Rachel2070/Hadasim_project/blob/main/Corona%20Managment%20System/frontend/screenshots/edit%20covid%20details.png?raw=true)
-
 
   
 
